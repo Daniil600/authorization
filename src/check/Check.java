@@ -3,7 +3,26 @@ package check;
 import Excecution.WrongLoginException;
 import Excecution.WrongPasswordException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Check {
+
+    public void checkRightEnterLogin(String login){
+        Pattern pt = Pattern.compile("^[aA-zZ(0-9)\\.]*$");
+        Matcher mt = pt.matcher(login);
+        if(!mt.matches()){
+            throw new WrongLoginException();
+        }
+    }
+
+    public void checkRightEnterPassword(String password){
+        Pattern pt = Pattern.compile("^[aA-zZ(0-9)]*$");
+        Matcher mt = pt.matcher(password);
+        if(!mt.matches()){
+            throw new WrongLoginException();
+        }
+    }
     public void checkLog(String log){
         if (log.length() >= 20 ){
             throw new WrongLoginException();
