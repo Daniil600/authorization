@@ -13,33 +13,32 @@ public class Main {
     }
 
     public static boolean authorization(String login, String password, String confirmPassword) {
-        Check check = new Check();
         try {
-            check.checkRightEnterLogin(login);
+            Check.checkRightEnterLogin(login);
         }catch (WrongLoginException e){
             System.out.println("Неверно введён логин\nЛогин содержит в себе только латинские буквы, цифры и знак подчеркивания");
             return false;
         }
         try {
-            check.checkRightEnterPassword(password);
+            Check.checkRightEnterPassword(password);
         }catch (WrongLoginException e){
             System.out.println("Неверно введен пароль\nПароль должен содержать в себе только латинские буквы, цифры и знак подчеркивания");
             return false;
         }
         try {
-            check.checkLog(login);
+            Check.checkLog(login);
         } catch (WrongLoginException e) {
             System.out.println("login error");
             return false;
         }
         try {
-            check.checkPass(password);
+            Check.checkPass(password);
         } catch (WrongPasswordException e) {
             System.out.println("Пароль слошком длинный");
             return false;
         }
         try {
-            check.checkPassConfirm(password, confirmPassword);
+            Check.checkPassConfirm(password, confirmPassword);
         } catch (WrongPasswordException e) {
             System.out.println("Пароли не совпадают");
             return false;

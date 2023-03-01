@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class Check {
     //проверка на использование символов логина
-    public void checkRightEnterLogin(String login){
+    public static void checkRightEnterLogin(String login){
         Pattern pt = Pattern.compile("^[aA-zZ(0-9)\\.]*$");
         Matcher mt = pt.matcher(login);
         if(!mt.matches()){
@@ -16,7 +16,7 @@ public class Check {
         }
     }
     //проверка на использование символов логина
-    public void checkRightEnterPassword(String password){
+    public static void checkRightEnterPassword(String password){
         Pattern pt = Pattern.compile("^[aA-zZ(0-9)\\-\\_]*$");
         Matcher mt = pt.matcher(password);
         if(!mt.matches()){
@@ -24,20 +24,20 @@ public class Check {
         }
     }
     //проверка на кол-во символов
-    public void checkLog(String log){
+    public static void checkLog(String log){
         if (log.length() >= 20 ){
             throw new WrongLoginException();
         }
     }
     //проверка на кол-во символов
-    public void checkPass(String password){
+    public static void checkPass(String password){
         if(password.length() > 20){
             throw new WrongPasswordException();
         }
     }
 
     //проверка на совпадение
-    public void checkPassConfirm(String password, String passwordConfirm){
+    public static void checkPassConfirm(String password, String passwordConfirm){
         if(!password.equals(passwordConfirm)){
             throw new WrongPasswordException();
         }
