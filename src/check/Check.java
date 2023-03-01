@@ -15,6 +15,7 @@ public class Check {
             throw new WrongLoginException();
         }
     }
+
     //проверка на использование символов логина
     public static void checkRightEnterPassword(String password){
         Pattern pt = Pattern.compile("^[aA-zZ(0-9)\\-\\_]*$");
